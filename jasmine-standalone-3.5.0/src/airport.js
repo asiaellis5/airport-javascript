@@ -3,10 +3,15 @@
 class Airport {
   constructor() {
     this.hangar = [];
+    this.capacity = 20;
   }
 
   land = (plane) => {
-    this.hangar.push(plane);
+    if (this.hangar.length < this.capacity) {
+      this.hangar.push(plane);
+    } else {
+      return "Airport full";
+    }
   };
 
   takeOff = () => {
