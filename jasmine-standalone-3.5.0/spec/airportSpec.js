@@ -26,6 +26,10 @@ describe("Airport", function () {
       airport.land("plane");
       expect(airport.takeOff()).toEqual("Plane has taken off");
     });
+
+    it("doesnt allow a plane to take off if there isnt one", function () {
+      expect(airport.takeOff()).toEqual("Sorry no planes available");
+    });
   });
 
   describe("capacity", function () {
