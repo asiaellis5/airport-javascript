@@ -8,10 +8,14 @@ class Airport {
   }
 
   land = (plane) => {
-    if (this.hangar.length < this.capacity) {
-      this.hangar.push(plane);
+    if (!this.isStormy()) {
+      if (this.hangar.length < this.capacity) {
+        this.hangar.push(plane);
+      } else {
+        return "Airport full";
+      }
     } else {
-      return "Airport full";
+      throw new Error("Unable to land in stormy weather");
     }
   };
 
@@ -24,11 +28,11 @@ class Airport {
         return "Sorry no planes available";
       }
     } else {
-      return "Unable to take off in stormy weather";
+      throw new Error("Unable to take off in stormy weather");
     }
   };
 
   isStormy = () => {
-    this.weather.generateWeather();
+    return this.weather.generateWeather();
   };
 }

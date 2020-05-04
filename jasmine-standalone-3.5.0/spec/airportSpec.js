@@ -13,6 +13,13 @@ describe("Airport", function () {
       airport.land("plane");
       expect(airport.hangar.length).toEqual(1);
     });
+
+    it("doesnt allow a plane to land if the weather is stormy", function () {
+      spyOn(airport, "isStormy").and.returnValue(true);
+      expect(function () {
+        airport.land("plane");
+      }).toThrowError("Unable to land in stormy weather");
+    });
   });
 
   describe("takeOff", function () {
@@ -36,9 +43,13 @@ describe("Airport", function () {
     });
 
     it("doesnt allow a plane to take off if the weather is stormy", function () {
+      spyOn(Math, "random").and.returnValue(1);
       airport.land("plane");
       spyOn(airport, "isStormy").and.returnValue(true);
-      expect(airport.takeOff()).toEqual("Unable to take off in stormy weather");
+      expect(function () {
+        airport.takeOff();
+      }).toThrowError("Unable to take off in stormy weather");
+      expect(airport.hangar.length).toEqual(1);
     });
   });
 
@@ -53,6 +64,7 @@ describe("Airport", function () {
     });
 
     it("doesnt allow a plane to land if the hangar is full", function () {
+      spyOn(airport, "isStormy").and.returnValue(false);
       for (let i = 0; i <= 20; i++) {
         airport.land("plane");
       }
@@ -61,6 +73,7 @@ describe("Airport", function () {
 
     it("doesnt allow a plane to land if the hangar is full and capacity isnt the deafult", function () {
       var airportOne = new Airport(40);
+      spyOn(airportOne, "isStormy").and.returnValue(false);
       for (let i = 0; i < 40; i++) {
         airportOne.land("plane");
       }
