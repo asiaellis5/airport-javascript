@@ -29,8 +29,13 @@ describe("Airport", function () {
   });
 
   describe("capacity", function () {
-    it("has a capacity of 20", function () {
+    it("has a default capacity of 20", function () {
       expect(airport.capacity).toEqual(20);
+    });
+
+    it("allows the default capacity to be overwritten", function () {
+      var airportOne = new Airport(40);
+      expect(airportOne.capacity).toEqual(40);
     });
 
     it("doesnt allow a plane to land if the hangar is full", function () {
