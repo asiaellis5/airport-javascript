@@ -9,6 +9,7 @@ describe("Airport", function () {
 
   describe("land", function () {
     it("lets a plane land", function () {
+      spyOn(airport, "isStormy").and.returnValue(false);
       airport.land("plane");
       expect(airport.hangar.length).toEqual(1);
     });
@@ -16,6 +17,7 @@ describe("Airport", function () {
 
   describe("takeOff", function () {
     it("allows a plane to take off", function () {
+      spyOn(airport, "isStormy").and.returnValue(false);
       airport.land("plane");
       airport.land("plane");
       airport.takeOff();
@@ -23,12 +25,20 @@ describe("Airport", function () {
     });
 
     it("confirms that a plane has take off", function () {
+      spyOn(airport, "isStormy").and.returnValue(false);
       airport.land("plane");
       expect(airport.takeOff()).toEqual("Plane has taken off");
     });
 
     it("doesnt allow a plane to take off if there isnt one", function () {
+      spyOn(airport, "isStormy").and.returnValue(false);
       expect(airport.takeOff()).toEqual("Sorry no planes available");
+    });
+
+    it("doesnt allow a plane to take off if the weather is stormy", function () {
+      airport.land("plane");
+      spyOn(airport, "isStormy").and.returnValue(true);
+      expect(airport.takeOff()).toEqual("Unable to take off in stormy weather");
     });
   });
 
