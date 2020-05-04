@@ -44,5 +44,14 @@ describe("Airport", function () {
       }
       expect(airport.land("plane")).toEqual("Airport full");
     });
+
+    it("doesnt allow a plane to land if the hangar is full and capacity isnt the deafult", function () {
+      var airportOne = new Airport(40);
+      for (let i = 0; i < 40; i++) {
+        airportOne.land("plane");
+      }
+      console.log(airportOne);
+      expect(airportOne.land("plane")).toEqual("Airport full");
+    });
   });
 });
