@@ -11,5 +11,6 @@ class Airport {
 
   takeOff = () => {
     this.hangar.pop();
+    return "Plane has taken off";
   };
 }

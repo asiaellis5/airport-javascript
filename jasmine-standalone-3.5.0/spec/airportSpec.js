@@ -21,5 +21,10 @@ describe("Airport", function () {
       airport.takeOff();
       expect(airport.hangar.length).toEqual(1);
     });
+
+    it("confirms that a plane has take off", function () {
+      airport.land("plane");
+      expect(airport.takeOff()).toEqual("Plane has taken off");
+    });
   });
 });
