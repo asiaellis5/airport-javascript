@@ -1,12 +1,15 @@
-"use strict"
+"use strict";
 
 class Airport {
-
   constructor() {
-    this.hangar = []
+    this.hangar = [];
   }
-  
- land = (plane) => {
-  this.hangar.push(plane)
- }
+
+  land = (plane) => {
+    this.hangar.push(plane);
+  };
+
+  takeOff = () => {
+    this.hangar.pop();
+  };
 }
