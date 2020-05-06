@@ -13,7 +13,7 @@ class Airport {
         this.hangar.push(plane);
         this.noFuel(plane);
       } else {
-        return "Airport full";
+        throw new Error("Airport full");
       }
     } else {
       throw new Error("Unable to land in stormy weather");
@@ -27,7 +27,7 @@ class Airport {
         this.hangar.pop();
         return "Plane has taken off";
       } else {
-        return "Sorry no planes available";
+        throw new Error("Sorry no planes available");
       }
     } else {
       throw new Error("Unable to take off in stormy weather");

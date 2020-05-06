@@ -41,7 +41,9 @@ describe("Airport", function () {
 
     it("doesnt allow a plane to take off if there isnt one", function () {
       spyOn(airport, "isStormy").and.returnValue(false);
-      expect(airport.takeOff()).toEqual("Sorry no planes available");
+      expect(function () {
+        airport.takeOff();
+      }).toThrowError("Sorry no planes available");
     });
 
     it("doesnt allow a plane to take off if the weather is stormy", function () {
@@ -67,10 +69,12 @@ describe("Airport", function () {
 
     it("doesnt allow a plane to land if the hangar is full", function () {
       spyOn(airport, "isStormy").and.returnValue(false);
-      for (let i = 0; i <= 20; i++) {
+      for (let i = 0; i < 20; i++) {
         airport.land(plane);
       }
-      expect(airport.land(plane)).toEqual("Airport full");
+      expect(function () {
+        airport.land(plane);
+      }).toThrowError("Airport full");
     });
 
     it("doesnt allow a plane to land if the hangar is full and capacity isnt the deafult", function () {
@@ -79,7 +83,9 @@ describe("Airport", function () {
       for (let i = 0; i < 40; i++) {
         airportOne.land(plane);
       }
-      expect(airportOne.land(plane)).toEqual("Airport full");
+      expect(function () {
+        airportOne.land(plane);
+      }).toThrowError("Airport full");
     });
   });
 });
