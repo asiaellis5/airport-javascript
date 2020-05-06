@@ -13,4 +13,15 @@ describe("Plane", function () {
       expect(airport.land).toHaveBeenCalledWith(plane);
     });
   });
+
+  describe("fuel", function () {
+    it("has enough fuel to complete journey", function () {
+      expect(plane.fuel).toEqual(false);
+    });
+
+    it("has fuel when refueled", function () {
+      plane.reFuel();
+      expect(plane.fuel).toEqual(true);
+    });
+  });
 });
