@@ -9,7 +9,7 @@ class Airport {
 
   land = (plane) => {
     if (!this.isStormy()) {
-      if (this.hangar.length < this.capacity) {
+      if (this.isFull()) {
         this.hangar.push(plane);
       } else {
         return "Airport full";
@@ -21,7 +21,7 @@ class Airport {
 
   takeOff = () => {
     if (!this.isStormy()) {
-      if (this.hangar.length > 0) {
+      if (this.isNotEmpty()) {
         this.hangar.pop();
         return "Plane has taken off";
       } else {
@@ -34,5 +34,13 @@ class Airport {
 
   isStormy = () => {
     return this.weather.generateWeather();
+  };
+
+  isNotEmpty = () => {
+    return this.hangar.length > 0;
+  };
+
+  isFull = () => {
+    return this.hangar.length < this.capacity;
   };
 }
