@@ -4,18 +4,6 @@
 
 Simple JavaScript app that is run in the console to emulate an airport.
 
-## How to run
-
-Clone this repo, navigate into the jasmine file, right click on SpecRunner.html and paste the path into the browser of your choice
-
-Once open in the browser you should see 18 specs all passing
-
-To use the program open up the console and then create airports and planes and you can land and take off planes from the airport.(please see below for an example of this).
-
-## Example
-
-<img src="./public/images/example.png">
-
 ## User Stories
 
 ```
@@ -47,3 +35,33 @@ As a pilot
 To ensure I make it to my destination
 I want to make sure my plane is refueled before take off
 ```
+
+## How to run
+
+Clone this repo, navigate into the Jasmine file
+
+Right click on `SpecRunner.html` click `copy path` and paste the path into the browser of your choice
+
+To use the program open up the console and type the following:
+
+```
+let plane = new Plane()
+let airport = new Airport()
+```
+
+Once you have instantiated these, you can then use the function landing planes and then taking them off again:
+
+```
+airport.land(plane)
+airport.takeOff(plane)
+```
+
+You can also add more instances of planes to land multiple at the same airport, if a plane has successfully taken off or landed you will be notified.
+
+Planes will automatically be refueled before take off and will come back empty.
+
+The program will throw an error and stop planes landing or taking off in stormy weather, if the airport's hangar is empty and take off is called and if the airport hangar is full.
+
+## Example
+
+<img src="./public/images/example.png">
