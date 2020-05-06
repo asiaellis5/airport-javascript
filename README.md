@@ -16,6 +16,8 @@ To use the program open up the console and then create airports and planes and y
 
 <img src="./public/images/example.png">
 
+## User Stories
+
 ```
 As an air traffic controller
 So I can get passengers to a destination
@@ -40,4 +42,8 @@ I want to prevent takeoff when weather is stormy
 As an air traffic controller
 To ensure safety
 I want to prevent landing when weather is stormy
+
+As a pilot
+To ensure I make it to my destination
+I want to make sure my plane is refueled before take off
 ```
