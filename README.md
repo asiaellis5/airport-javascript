@@ -62,6 +62,14 @@ Planes will automatically be refueled before take off and will come back empty.
 
 The program will throw an error and stop planes landing or taking off in stormy weather, if the airport's hangar is empty and take off is called and if the airport hangar is full.
 
+## How to run tests
+
+Once you have cloned the repo open the jasmine folder.
+
+Right click on `SpecRunner.html` click `copy path` and paste the path into the browser of your choice
+
+Once open in the browser you should see 18 Jasmine tests passing (please see in example below).
+
 ## Example
 
 <img src="./public/images/example.png">
