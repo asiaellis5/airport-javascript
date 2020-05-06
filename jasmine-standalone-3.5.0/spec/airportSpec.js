@@ -6,7 +6,7 @@ describe("Airport", function () {
 
   beforeEach(function () {
     airport = new Airport();
-    plane = jasmine.createSpy("plane");
+    plane = jasmine.createSpyObj("plane", ["reFuel"]);
   });
 
   describe("land", function () {

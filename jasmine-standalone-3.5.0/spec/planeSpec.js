@@ -23,5 +23,10 @@ describe("Plane", function () {
       plane.reFuel();
       expect(plane.fuel).toEqual(true);
     });
+
+    it("has fuel no fuel when it lands", function () {
+      airport.land(plane);
+      expect(plane.fuel).toEqual(false);
+    });
   });
 });

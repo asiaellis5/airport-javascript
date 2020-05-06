@@ -11,6 +11,7 @@ class Airport {
     if (!this.isStormy()) {
       if (this.isNotFull()) {
         this.hangar.push(plane);
+        this.noFuel(plane);
       } else {
         return "Airport full";
       }
@@ -22,6 +23,7 @@ class Airport {
   takeOff = () => {
     if (!this.isStormy()) {
       if (this.isNotEmpty()) {
+        this.reFuel();
         this.hangar.pop();
         return "Plane has taken off";
       } else {
@@ -42,5 +44,13 @@ class Airport {
 
   isNotFull = () => {
     return this.hangar.length < this.capacity;
+  };
+
+  noFuel = (plane) => {
+    return (plane.fuel = false);
+  };
+
+  reFuel = () => {
+    this.hangar.slice(-1)[0].reFuel();
   };
 }
