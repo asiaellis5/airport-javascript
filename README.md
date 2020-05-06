@@ -1,5 +1,21 @@
 # airport-javascript
 
+## Overview
+
+Simple JavaScript app that is run in the console to emulate an airport.
+
+## How to run
+
+Clone this repo, navigate into the jasmine file, right click on SpecRunner.html and paste the path into the browser of your choice
+
+Once open in the browser you should see 18 specs all passing
+
+To use the program open up the console and then create airports and planes and you can land and take off planes from the airport.(please see below for an example of this).
+
+## Example
+
+<img src="./public/images/example.png">
+
 ```
 As an air traffic controller
 So I can get passengers to a destination

@@ -11,7 +11,7 @@ describe("feature", function () {
     it("lands a plane at an airport", function () {
       spyOn(airport, "isStormy").and.returnValue(false);
       airport.land(plane);
-      expect(airport.hangar[0]).toEqual(plane);
+      expect(airport.hangar).toContain(plane);
       expect(plane.fuel).toBe(false);
     });
 
