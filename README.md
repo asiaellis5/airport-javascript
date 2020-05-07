@@ -2,7 +2,7 @@
 
 ## Overview
 
-Simple JavaScript app that is run in the console to emulate an airport.
+Simple JavaScript app that is run in the console to emulate an airport. Test driven in ES6 with the Jasmine testing suite. A user can land and take off a plane from an airport and it will throw an error if the weather is stormy, there are no planes available or if the airport is full.
 
 ## User Stories
 
